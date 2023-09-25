@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date and Time Display</title>
+</head>
+<body>
+  <h1>Date and Time Display</h1>
+  
+  <form>
+    <label for="dateDisplay">Current Date:</label>
+    <input type="text" id="dateDisplay" disabled>
+    <br>
+    <label for="timeDisplay">Current Time:</label>
+    <input type="text" id="timeDisplay" disabled>
+  </form>
+  
+  <script>
+    function displayDateTime() {
+      const currentDate = new Date();
+      
+      const dateElement = document.getElementById('dateDisplay');
+      const timeElement = document.getElementById('timeDisplay');
+      
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      dateElement.value = currentDate.toLocaleDateString(undefined, options);
+      
+      const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+      timeElement.value = currentDate.toLocaleTimeString(undefined, timeOptions);
+    }
+    
+    // Display the date and time on page load
+    displayDateTime();
+  </script>
+</body>
+</html>
